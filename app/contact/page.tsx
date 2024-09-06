@@ -8,21 +8,6 @@ import ContactForm from "@/components/ContactForm";
 import { useState, useEffect } from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-
-// Importing the images correctly
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-    iconUrl: markerIcon.src, 
-    shadowUrl: markerShadow.src,
-    iconAnchor: [12, 41], // Adjusted anchor point (center-bottom)
-    popupAnchor: [1, -34], // Adjusted popup point (optional)
-    shadowAnchor: [12, 41] // Adjusted shadow anchor (optional)
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapWithNoSSR = dynamic(() => import("@/components/Map"), {
   ssr: false
@@ -91,7 +76,7 @@ export default function ContactPage() {
                 <div className="bg-white rounded-lg shadow-lg p-8 transition-transform transform hover:scale-105">
                   <h2 className="text-2xl font-semibold mb-6 text-gray-700">Our Location</h2>
                   <div className="h-64 rounded-lg overflow-hidden">
-                    <MapWithNoSSR />
+                    {isClient && <MapWithNoSSR />}
                   </div>
                   <div className="mt-4 text-center">
                     <a 
