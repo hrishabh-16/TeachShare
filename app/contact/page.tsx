@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -30,6 +30,11 @@ const MapWithNoSSR = dynamic(() => import("@/components/Map"), {
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleFormSubmit = (): void => {
     setFormSubmitted(true);

@@ -6,6 +6,8 @@ import dbConnect from '@/utils/dbConnect';
 import { Bookmark } from '@/model/Bookmark';
 import { Material } from '@/model/Material';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const { userId } = getAuth(request);
