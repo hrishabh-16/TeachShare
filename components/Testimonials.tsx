@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const testimonials = [
   { name: 'Hrishabh gautam', role: 'Professor', quote: 'TeachShare has revolutionized how I share resources with my students.', avatar: '/resume-pic.jpg' },
-  { name: 'Suraj Biswas', role: 'Student', quote: 'I love how easy it is to find and collaborate on study materials.', avatar: '/my-avatar.jpg' },
+  { name: 'Suraj Biswas', role: 'Student', quote: 'I love how easy it is to find and collaborate on study materials.', avatar: '/suraj.jpg' },
 ];
 
 export default function Testimonials() {
